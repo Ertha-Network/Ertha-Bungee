@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Ertha">
+    <output-path>$PROJECT_DIR$/../Travertine/plugins</output-path>
+    <root id="archive" name="Ertha.jar">
+      <element id="module-output" name="Ertha Bungeecord" />
+      <element id="library" level="project" name="Maven: com.zaxxer:HikariCP:3.4.5" />
+      <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
+    </root>
+  </artifact>
+</component>

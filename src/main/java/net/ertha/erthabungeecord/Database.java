@@ -6,27 +6,26 @@ import com.zaxxer.hikari.HikariDataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.Collection;
 
-public class EBDatabase {
+public class Database {
 
     private ErthaBungeecord eb;
 
-    public EBDatabase(ErthaBungeecord erthaBungeecord){
+    public Database(ErthaBungeecord erthaBungeecord){
         eb = erthaBungeecord;
     }
 
     public HikariDataSource connect(){
         HikariDataSource hikari = new HikariDataSource();
-        hikari.setMaximumPoolSize(EBSettings.databaseMaxPoolSize);
+        hikari.setMaximumPoolSize(Settings.databaseMaxPoolSize);
         hikari.setDataSourceClassName("org.mariadb.jdbc.MariaDbDataSource");
-        hikari.addDataSourceProperty("serverName", EBSettings.database_address);
-        hikari.addDataSourceProperty("port", EBSettings.databasePort);
-        hikari.addDataSourceProperty("databaseName", EBSettings.databaseName);
-        hikari.addDataSourceProperty("password", EBSettings.databasePassword);
+        hikari.addDataSourceProperty("serverName", Settings.database_address);
+        hikari.addDataSourceProperty("port", Settings.databasePort);
+        hikari.addDataSourceProperty("databaseName", Settings.databaseName);
+        hikari.addDataSourceProperty("password", Settings.databasePassword);
         return hikari;
     }
-
+/*
     public PreparedStatement newStatement(String statement){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -40,7 +39,7 @@ public class EBDatabase {
         return preparedStatement;
 
     }
-
+*/
     public void endConnection(Connection connection){
         if(connection != null){
             try{
@@ -67,9 +66,9 @@ public class EBDatabase {
 
     private void createHeadsTable(){
         String statement = "CREATE TABLE IF NOT EXIST" +
-                "UUID"
+                "UUID";
 
-        PreparedStatement preparedStatement = newStatement()
+        //PreparedStatement preparedStatement = newStatement();
 
     }
 }
