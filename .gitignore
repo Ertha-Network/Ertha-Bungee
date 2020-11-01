@@ -1,1 +1,3 @@
 /EBSettings.java
+*.class
+target/classes/plugin.yml
