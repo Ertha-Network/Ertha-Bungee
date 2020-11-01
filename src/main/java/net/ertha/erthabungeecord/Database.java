@@ -25,7 +25,7 @@ public class Database {
         hikari.addDataSourceProperty("password", Settings.databasePassword);
         return hikari;
     }
-/*
+
     public PreparedStatement newStatement(String statement){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -39,7 +39,7 @@ public class Database {
         return preparedStatement;
 
     }
-*/
+
     public void endConnection(Connection connection){
         if(connection != null){
             try{

@@ -33,9 +33,16 @@ public class SocketServer implements Runnable {
                 SocketServerConnection clientThread = new SocketServerConnection(eb, client);
                 eb.getLogger().info("Created new Socket connection");
                 clients.add(clientThread);
+                pool.execute(clientThread);
             }
         } catch (IOException ioException) {
             ioException.printStackTrace();
+        }
+    }
+
+    public void closeAllConnections (){
+        for (SocketServerConnection client:clients){
+            client.close();
         }
     }
 }
